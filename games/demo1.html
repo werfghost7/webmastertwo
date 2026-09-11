@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+
+​
+
+<head>
+
+<title>색깔 폭탄 버튼</title>
+
+<style> 
+
+    body { text-align:center; font-family:sans-serif; }
+
+    button { font-size:24px; padding:20px 40px; border:none;
+
+    border-radius:12px; cursor:pointer; }
+
+</style>
+
+</head>
+
+<body>
+
+<h1>색깔 폭탄 터트리기</h1>
+
+<p>클릭하면 배경색이 바뀝니다!</p>
+
+<img src="../img/colorbomb.png" border="0" onclick="changeColor()" />
+
+<script>
+
+function changeColor() {
+
+const r = Math.floor(Math.random() * 256);
+
+const g = Math.floor(Math.random() * 256);
+
+const b = Math.floor(Math.random() * 256);
+
+document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+
+}
+
+</script>
+
+</body>
+
+​
+
+</html>

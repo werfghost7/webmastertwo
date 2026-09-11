@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>5초 클릭 챌린지</title>
+	<style>
+		body { text-align:center; font-family:sans-serif; }
+		#score { font-size:48px; color:#1BA098; }
+		button { font-size:20px; padding:16px 32px; border-radius:12px; cursor:pointer; margin:8px; }
+	</style>
+</head>
+<body>
+	<h1>5초 클릭 챌린지</h1>
+	<p id="timeLeft">5초 남음</p>
+	<p id="score">0</p>
+	<button id="clickBtn" onclick="addScore()" disabled>클릭!</button><br>
+	<button onclick="startGame()">게임 시작</button>
+	<script>
+		const $ = (id) => document.getElementById(id);
+		let score = 0, time = 5, timer = null;
+		function startGame() { 
+			score = 0; time = 5;
+			$("score").innerText = score; 
+			$("clickBtn").disabled = false;
+			timer = setInterval(() => {
+				time--;
+				$("timeLeft").innerText = time + "초 남음";
+				if (time <= 0) {
+					clearInterval(timer); $("clickBtn").disabled = true;
+					alert("종료! 총 " + score + "번 클릭했어요.");
+				}
+			}, 1000);
+		}
+		function addScore() { score++; $("score").innerText = score; }
+	</script>
+</body>
+
+</html>

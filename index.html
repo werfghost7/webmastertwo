@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>게임 개발 동아리</title>
+
+  <style>
+      /* 기본 설정 */
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+          margin: 0;
+          padding: 30px;
+          background-color: #f1f5f9;
+          font-family: Arial, sans-serif;
+          color: #1e293b;
+      }
+
+     /* 제목 */
+    header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    header h1 {
+        color: #d80f4d;
+    }
+
+    /* 카드들을 담는 영역 */
+    .container {
+        display: flex;
+        gap: 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    /* 프로젝트 카드 */
+    .card {
+        flex: 1;
+        background-color: white;
+        padding: 25px;
+        border-radius: 15px;
+    }
+
+    .card h2 {
+        //color: #1BA098;
+	color: #10747b;
+    }
+
+    /* 버튼 */
+    button {
+        //background-color: #2563eb;
+	background-color: #1BA098;
+        color: white;
+	width:100%;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    /* 버튼 위 마우스오버 */
+    button:hover {
+        transform: scale(1.05);
+    }
+
+    /* ====== 반응형웹 ======*/
+   @media (max-width: 700px) {
+      	body {
+        	padding: 15px;
+   	}
+        .container {
+            flex-direction: column;
+        }
+        .card {
+            width: 100%;
+        }
+
+    }
+
+    </style>
+</head>
+
+<body>
+
+     <header>
+         <h1>게임 개발 동아리</h1>
+         <img src="img/main_img.png" alt="프로젝트 이미지">
+         <h2>문산제일고등학교</h2>
+     </header>
+
+    <main class="container">
+
+        <section class="card">
+            <h2>DEMO1</h2>
+            <p>색깔 폭탄 버튼</p>
+	    <a href="games/demo1.html">
+            	<button >자세히 보기</button>
+	    </a>
+        </section>
+
+        <section class="card">
+            <h2>DEMO2</h2>
+	    <p>5초 클릭 챌린지</p>
+            <a href="games/demo2.html">
+            	<button>자세히 보기</button>
+	    </a>
+        </section>
+
+        <section class="card">
+            <h2>DEMO3</h2>
+            <p>랜덤 데이터 생성</p>
+            <a href="games/demo3.html">
+            	<button>자세히 보기</button>
+	    </a>
+        </section>
+
+        <section class="card">
+            <h2>DEMO4</h2>
+            <p>반응 속도 테스트</p>
+            <a href="games/demo4.html">
+            	<button>자세히 보기</button>
+	    </a>
+        </section>
+
+        <section class="card">
+            <h2>DEMO5</h2>
+            <p>업다운 숫자 맞추기</p>
+            <a href="games/demo5.html">
+            	<button>자세히 보기</button>
+	    </a>
+        </section>
+
+    </main>
+
+</body>
+</html>

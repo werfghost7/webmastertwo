@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>업다운 숫자 맞추기</title>
+	<style>
+		body{text-align:center;font-family:sans-serif;}
+		input{font-size:18px;padding:8px;width:100px;text-align:center;}
+		button{font-size:18px;padding:8px 18px;border-radius:8px;
+		cursor:pointer;margin-left:8px;}
+		#hint{margin-top:20px;}
+		#hint_txt{font-size:22px;margin-top:20px;color:#1BA098;}
+	</style>
+</head>
+<body onLoad="initialSet()">
+	<h1>1~100 업다운 게임</h1>
+	<p>컴퓨터가 정한 숫자를 맞혀보세요!</p>
+	<input type="number" id="guess" placeholder="숫자 입력">
+	<button onclick="checkGuess()" id="btn_check">확인</button>
+	<button onclick="initialSet()" id="btn_initial" style="display:none">초기화</button>
+	<div id="hint" style="display:none;">
+		<img src="../img/up.png"  id="hint_img" border="0" />
+		<p id="hint_txt"></p>
+	</div>
+
+	<script>
+		// 화면 초기화
+		function initialSet() {
+			answer = Math.floor(Math.random() * 100) + 1;
+			tries = 0;
+			document.getElementById("guess").value = "";
+			document.getElementById("btn_check").style.display = 'inline';
+			document.getElementById("btn_initial").style.display = 'none';
+			document.getElementById("hint").style.display = 'none';
+			document.getElementById("hint_txt").innerText = "";
+		}
+
+		// 확인 버튼 클릭 시
+		function checkGuess() {
+			const guess = document.getElementById("guess");
+			const hint = document.getElementById("hint");
+			const hint_img = document.getElementById("hint_img");
+			const hint_txt   = document.getElementById("hint_txt");
+			const btn_check = document.getElementById("btn_check");
+			const btn_initial = document.getElementById("btn_initial");
+
+			if(guess.value == "")
+				alert("입력란에 숫자를 입력한 후 확인 버튼을 클릭해주세요");
+			else {
+				hint.style.display = 'block';
+				const guessVal = Number(guess.value);
+				tries++;
+				if (guessVal === answer) {
+					hint_img.src = "../img/right.png";
+					hint_txt.innerText = "정답! " + tries + "번만에 맞혔어요!!";	
+					answer = Math.floor(Math.random() * 100) + 1;
+					btn_check.style.display = 'none';
+					btn_initial.style.display = 'inline';
+					tries = 0;
+				} else if (guessVal < answer) {
+					hint_img.src = "../img/up.png";
+					hint_txt.innerText = "UP - 더 큰 숫자";
+				} else {
+					hint_img.src = "../img/down.png";
+					hint_txt.innerText = "DOWN - 더 작은 숫자";
+				}
+			}
+		}
+	</script>
+</body>
+
+</html>

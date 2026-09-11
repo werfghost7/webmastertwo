@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <title>오늘의 운세 뽑기</title>
+     <style>
+        body{text-align:center;font-family:sans-serif;padding-top:80px;}
+        #result{font-size:32px;margin:30px;color:#E36BA0;}
+        button{font-size:20px;padding:16px 32px;border-radius:12px;
+        cursor:pointer;}
+    </style>
+</head>
+<body>
+    <h1>오늘의 운세를 뽑아보세요!</h1>
+    <p id="result">?</p>
+    <button onclick="draw()">뽑기</button>
+    <script>
+        const titles = ["L을가져가~!","측면대측면~","야채!", "포탈오류ㅠㅠ","당신에게서","으악"];
+        function draw() {
+            const randomTitle = titles[Math.floor(Math.random() * titles.length)];
+            const power = Math.floor(Math.random() * 100);
+            document.getElementById("result").innerText = randomTitle + " ( 운세지수 " + power + "점 )";
+        }
+    </script>
+</body>
+</html>
